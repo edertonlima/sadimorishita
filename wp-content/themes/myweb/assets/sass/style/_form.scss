@@ -1,0 +1,194 @@
+form {
+	width: 100%;
+	@include clear();
+
+	.obs {
+		font-size: .9rem;
+		line-height: .9rem;
+		font-style: italic;
+		font-weight: $light;
+		margin-bottom: 20px;
+		display: block;
+	}
+
+	input, textarea {
+		max-width: 100%;
+		width: 100%;
+
+		@include placeholder{
+			opacity: 1;
+			color: $cor-txt;
+		}
+	}
+
+	input[type='text'], input[type='email'], input[type='password'] {
+		background-color: #ffffff;
+		font-size: 1rem; 
+		color: $cor-txt;
+		font-weight: $light;
+		line-height: 43px;
+		height: 43px;
+		border-bottom: 1px solid $cor-txt;
+		padding: 0 10px;
+		font-style: normal;
+		@include box-sizing;
+	}
+
+	textarea {
+		background-color: #ffffff;
+		font-size: 1rem; 
+		color: $cor-txt;
+		font-weight: $light;
+		border-bottom: 1px solid $cor-txt;
+		padding: 10px;
+		font-style: normal;
+		height: 95px;
+		resize: vertical;
+		@include box-sizing;
+	}
+
+	fieldset {
+		margin-top: 30px;
+		width: 100%;
+		float: left;
+		clear: both;
+
+		&:first-chid {
+			margin-top: 0;
+		}
+
+		&.col2 {
+			width: 48%;
+
+			&.right {
+				float: right;
+				clear: none;
+			}
+		}
+	}
+}
+
+/* hover style just for information */
+label:hover:before {
+  border: 1px solid #4778d9!important;
+}
+
+button, input[type='submit'], .button { 
+	display: inline-block;
+	width: auto;
+	height: 46px;
+	line-height: 46px;
+	color: #ffffff;
+	font-weight: $bold;
+	font-size: 1.06rem; 
+	text-align: center;
+	text-transform: uppercase;
+	padding: 0 30px;
+	border-radius: 5px;
+	border: 1px solid #ffffff;
+	cursor: pointer;
+	@include animacao;
+	@include box-sizing();
+
+	&:hover {
+		background-color: #ffffff;
+		color: #ffffff;
+	}
+
+	&.grande {
+		line-height: 53px;
+		height: 53px;
+		font-size: 1.25rem;
+		padding: 0 25px;
+	}
+
+	&.pequeno {
+		height: 39px;
+		line-height: 39px;
+		font-size: .75rem;
+		text-transform: none;
+	}
+
+	&.mini {
+		height: 29px;
+		line-height: 29px;
+		font-size: .65rem;
+		padding: 0 20px;
+		text-transform: none;
+	}
+
+	&.btn-full {
+		width: 100%;
+	}
+}
+
+.select {
+	overflow: hidden;
+	padding: 0 0 0 10px;
+	margin-bottom: 20px;
+	display: block;
+	position: relative;
+	background-color: #ffffff;
+	line-height: 43px;
+	height: 43px;
+	border-bottom: 1px solid $cor-txt;
+	font-style: normal;
+
+	@include box-sizing();
+
+	select {
+		width: 88%;
+		padding-right: 135px;
+		background-color: transparent;
+		font-weight: $light;
+		font-size: 1rem; 
+		color: $cor-txt;
+		box-sizing: content-box;
+		position: relative;
+		z-index: 99;
+		cursor: pointer;
+	}
+
+	&:after {
+		content: "\f078";
+		font-weight: 900;
+		position: absolute;
+		right: 13px;
+		top: 15px;
+		font-family: 'Font Awesome 5 Free';
+		cursor: pointer;
+		height: 15px;
+		line-height: 15px;
+		z-index: 0;
+	}
+}
+
+/*input::-webkit-input-placeholder, input:-moz-placeholder, input::-moz-placeholder, input:-ms-input-placeholder {  
+	opacity: 1;	
+}
+
+input::-webkit-input-placeholder {
+    opacity: 0;
+}
+*/
+.msg-form {
+	margin-top: 20px;
+	font-size: 1rem;
+
+	strong {
+		display: block;
+		font-size: 1rem;
+	}
+
+	&.erro {
+		color: $vermelho;
+
+		strong, i {
+			color: $vermelho;
+		}
+	}
+
+	&.ok {
+		color: $verde;
+	}
+}

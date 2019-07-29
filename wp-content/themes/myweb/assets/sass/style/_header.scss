@@ -1,0 +1,92 @@
+.header {
+	width: 100%;
+	height: 136px;
+	padding: 20px 0;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	@include box-sizing;
+
+	&:before {
+		content: '';
+		background: url('../images/mask-header.png') repeat-x 0 0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+}
+
+.breadcrumbs {
+	width: 100%;
+	background: #f2f2f2;
+	padding: 15px 0;
+
+	h4 {
+		float: left;
+		line-height: 23px;
+		border: 0;
+		font-size: 1.25rem;
+	}
+
+	ul {
+		float: right;
+		text-align: right;
+		padding-right: 40px;
+
+		li {
+			display: inline;
+
+			&:after {
+				content: "\f054";
+				font-size: .7rem;
+				line-height: 1.37rem;
+				font-family: 'Font Awesome 5 Free';
+				font-weight: 900;
+				display: inline;
+				padding: 0 5px 0px 10px;
+				opacity: .7;
+			}
+
+			&:before {
+				opacity: .7;
+			}
+
+			&:last-child {
+				&:after {
+					display: none;
+				}
+			}
+		}
+
+		a, span, i {
+			line-height: 1.37rem;
+			display: inline;
+		}
+
+		a, span {
+			font-weight: $regular;
+			font-size: .8rem;
+			text-transform: uppercase;
+		}
+
+		i {
+			font-size: .9rem;
+			opacity: .7;
+		}
+
+		a {
+			@include animacao;
+
+			&:hover {
+				color: $laranja;
+
+				i {
+					color: $laranja;
+				}
+			}
+		}
+	}
+}
