@@ -17,18 +17,18 @@ form {
 
 		@include placeholder{
 			opacity: 1;
-			color: $cor-txt;
+			color: $cortxt;
 		}
 	}
 
 	input[type='text'], input[type='email'], input[type='password'] {
 		background-color: #ffffff;
 		font-size: 1rem; 
-		color: $cor-txt;
+		color: $cortxt;
 		font-weight: $light;
 		line-height: 43px;
 		height: 43px;
-		border-bottom: 1px solid $cor-txt;
+		border-bottom: 1px solid $cortxt;
 		padding: 0 10px;
 		font-style: normal;
 		@include box-sizing;
@@ -37,9 +37,9 @@ form {
 	textarea {
 		background-color: #ffffff;
 		font-size: 1rem; 
-		color: $cor-txt;
+		color: $cortxt;
 		font-weight: $light;
-		border-bottom: 1px solid $cor-txt;
+		border-bottom: 1px solid $cortxt;
 		padding: 10px;
 		font-style: normal;
 		height: 95px;
@@ -131,7 +131,7 @@ button, input[type='submit'], .button {
 	background-color: #ffffff;
 	line-height: 43px;
 	height: 43px;
-	border-bottom: 1px solid $cor-txt;
+	border-bottom: 1px solid $cortxt;
 	font-style: normal;
 
 	@include box-sizing();
@@ -142,7 +142,7 @@ button, input[type='submit'], .button {
 		background-color: transparent;
 		font-weight: $light;
 		font-size: 1rem; 
-		color: $cor-txt;
+		color: $cortxt;
 		box-sizing: content-box;
 		position: relative;
 		z-index: 99;

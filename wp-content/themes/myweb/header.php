@@ -1,5 +1,3 @@
-<?php include get_template_directory().'/login.php'; //include ('login.php'); ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -167,18 +165,15 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 </head>
 <body <?php body_class(); ?>>
 
-	<div id="fb-root"></div>
-	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v3.3&appId=179359752456763&autoLogAppEvents=1"></script>
-
-	<header class="header" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/bg-header.jpg');">
-		<div class="container">
-			<a href="javascript:" class="menu-mobile"></a>
-
+	<header class="header" style="">
+		<div class="">
 			<h1>
 				<a href="<?php echo get_home_url(); ?>" title="<?php //the_field('titulo', 'option'); ?>">
-					<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/logo-aeago.png" alt="<?php //the_field('titulo', 'option'); ?>">
+					<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/sadimorishita_logo_header.svg" alt="<?php //the_field('titulo', 'option'); ?>">
 				</a>
 			</h1>
+
+			<a href="javascript:" class="menu-mobile"></a>
 
 			<nav class="nav">
 				<ul>
@@ -187,9 +182,9 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 					</li>
 
 					<li class="submenu">
-						<a href="<?php //echo get_permalink(get_page_by_path('sobre')); ?>" title="SOBRE">SOBRE <i class="fas fa-chevron-down"></i></a>
+						<a href="<?php //echo get_permalink(get_page_by_path('sobre')); ?>" title="SOBRE">QUEM SOMOS <i class="fas fa-chevron-down"></i></a>
 
-						<ul>
+						<ul style="display: none;">
 							<li><a href="<?php echo get_home_url(); ?>/" title="">História</a></li>
 							<li><a href="<?php echo get_home_url(); ?>/" title="">Estatuto</a></li>
 							<li><a href="<?php echo get_home_url(); ?>/" title="">Missão e Visão</a></li>
@@ -202,52 +197,27 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 					</li>
 
 					<li class="">
-						<a href="<?php //echo get_home_url(); ?>" title="CURSOS">CURSOS</a>
+						<a href="<?php //echo get_home_url(); ?>" title="ÁREAS DE ATUAÇÃO">ÁREAS DE ATUAÇÃO</a>
 					</li>
 
 					<li class="">
-						<a href="<?php //echo get_permalink(get_page_by_path('co-found')); ?>" title="EVENTOS">EVENTOS</a>
+						<a href="<?php //echo get_permalink(get_page_by_path('co-found')); ?>" title="NOSSOS ADVOGADOS">NOSSOS ADVOGADOS</a>
 					</li>
 
 					<li class="submenu">
-						<a href="<?php //echo get_home_url(); ?>" title="NOTÍCIAS">NOTÍCIAS <i class="fas fa-chevron-down"></i></a>
-
-						<ul>
-							<li><a href="#"><i class="fas fa-chevron-right"></i>Agricultura</a></li>
-							<li><a href="#"><i class="fas fa-chevron-right"></i>Agronegócio</a></li>
-							<li><a href="#"><i class="fas fa-chevron-right"></i>Ciência</a></li>
-							<li><a href="#"><i class="fas fa-chevron-right"></i>Energia</a></li>
-							<li><a href="#"><i class="fas fa-chevron-right"></i>Florestal</a></li>
-							<li><a href="#"><i class="fas fa-chevron-right"></i>Gestão Rural</a></li>
-							<li><a href="#"><i class="fas fa-chevron-right"></i>Mercado</a></li>
-							<li><a href="#"><i class="fas fa-chevron-right"></i>Política</a></li>
-							<li><a href="#"><i class="fas fa-chevron-right"></i>Tecnologia</a></li>
-						</ul>
+						<a href="<?php //echo get_home_url(); ?>" title="MÍDIAS/INSIGHT">MÍDIAS/INSIGHT <i class="fas fa-chevron-down"></i></a>
 					</li>
 
 					<li class="">
-						<a href="<?php //echo get_permalink(get_page_by_path('contato')); ?>" title="CONTATO">CONTATO</a>
+						<a href="<?php //echo get_permalink(get_page_by_path('contato')); ?>" title="FALE CONOSCO">FALE CONOSCO</a>
 					</li>
-
-					<?php if ( $_SESSION['associado']['login'] != 'ok' ): ?>
-
-						<li class="">
-							<a href="<?php //echo get_permalink(get_page_by_path('contato')); ?>" class="button associar-se" title="ASSOCIAR-SE">ASSOCIAR-SE</a>
-						</li>
-
-						<li class="">
-							<a href="javascript:" class="" id="btn-login" title="ENTRAR"><i class="fas fa-user-lock"></i>ENTRAR</a>
-						</li>
-
-					<?php endif; ?>
-
 
 					<li class="redes-sociais">
 						<a href="<?php //echo get_permalink(get_page_by_path('contato')); ?>" class="" title="FACEBOOK"><i class="fab fa-facebook-square"></i></a>
 						<a href="<?php //echo get_permalink(get_page_by_path('contato')); ?>" class="" title="INSTAGRAM"><i class="fab fa-instagram"></i></a>
 					</li>
 
-					<li class="busca">
+					<li class="busca" style="display: none;">
 						<a href="<?php //echo get_permalink(get_page_by_path('contato')); ?>" class="" title="O QUE VOCÊ QUER BUSCAR?"><i class="fas fa-search"></i></a>
 					</li>
 				</ul>
@@ -256,9 +226,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 		</div>
 	</header>
 
-	<?php get_template_part( 'breadcrumbs', get_post_format() ); ?>
-
-	<?php get_template_part( 'nav-associado', get_post_format() ); ?>
+	<?php //get_template_part( 'breadcrumbs', get_post_format() ); ?>
 
 	<?php if(!is_home()){ ?>
 

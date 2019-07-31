@@ -97,3 +97,8 @@
 	&::-moz-placeholder          {@content}
 	&:-ms-input-placeholder      {@content}
 }
+
+@function fontsize($value) {
+	$fontsize: ($value/16) + 'rem';
+	@return $fontsize;
+}

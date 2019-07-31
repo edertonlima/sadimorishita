@@ -3,8 +3,9 @@ strong {
 }
 
 h1 {
-	display: inline-block;
-	width: 75px;
+	width: 400px;
+	display: block;
+	margin: 45px auto;
 	@include animacao();
 
 	a {
@@ -13,6 +14,7 @@ h1 {
 
 		img {
 			@include animacao;
+			max-width: 100%;
 		}
 
 		&:hover {
@@ -22,11 +24,16 @@ h1 {
 }
 
 h2 {
-	font-size: 3rem;
-	line-height: 50px;
+	font-size: 1.5625rem;
 	position: relative;
-	text-transform: uppercase;
-	font-weight: $extra-bold;
+	font-weight: $regular;
+	color: $cortxt-bold;
+	display: block;
+
+	strong {
+		font-size: 1.5625rem;
+		color: $cortxt-bold;
+	}
 
 	&.sub-tituto {
 		font-size: 1.25rem;

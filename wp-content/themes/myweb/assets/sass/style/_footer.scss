@@ -1,0 +1,131 @@
+.footer {
+	background-color: $cor1;
+	padding-top: 45px;
+	margin-top: 45px;
+
+	.content-vertical {
+		width: 33.333%;
+	}
+
+	img {
+		margin: 0 auto;
+		display: block;
+	}
+
+	h2 {
+		font-size: 1rem;
+		color: #ffffff;
+		margin-bottom: 10px;
+
+		strong {
+			font-size: 1rem;
+			color: $cor2;
+		}
+	}
+
+	p, span, em, i {
+		color: #ffffff;
+	}
+
+	p {
+		font-size: .875rem;
+		line-height: 1.375rem;
+	}
+
+	.endereco-footer {
+		&:first-child {
+			margin-bottom: 40px;
+		}
+	}
+
+	.info-contato {
+		.telefone {
+			font-size: 1.75rem;
+			font-weight: $bold;
+
+			em {
+				font-style: normal;
+				font-size: 60%;
+				vertical-align: top;
+				position: relative;
+				top: 5px;
+				margin-right: -5px;
+				font-weight: $bold
+			}
+		}
+	}
+
+	ul {
+		text-align: center;
+		margin-top: 20px; 
+
+		li {
+			display: inline-block;
+			padding: 0 1px;
+			
+			a {
+				padding: 5px;
+				@include animacao;
+
+				i {
+					@include animacao;
+				}
+
+				&:hover, &:hover i {
+					color: $cor2;
+				}
+			}
+		}
+	}
+
+	.copy {
+		margin-top: 45px;
+		padding: 25px 0;
+		background-color: darken($cor1, 10%);
+
+		.content-vertical {
+			width: 50%;
+		}
+
+		img {
+			margin: 0;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 40px;
+		}
+
+		span, a {
+			font-size: .75rem;
+			color: #ffffff;	
+			opacity: .5;
+			font-weight: $regular;
+		}
+
+		i {
+			font-size: .6rem;
+			color: #ffffff;	
+
+			&.fa-copyright {
+				margin-left: 5px;
+			}
+		}
+
+		ul {
+			text-align: right;
+			margin: 0;
+
+			li {
+				a {
+					&:hover, &:hover i {
+						opacity: 1;
+						color: #ffffff;
+					}
+				}
+
+				&.redes-sociais {
+					padding-left: 30px;
+				}
+			}
+		}
+	}
+}
