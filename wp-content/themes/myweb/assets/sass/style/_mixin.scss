@@ -16,6 +16,15 @@
 	background: linear-gradient($angulo ,rgba($grad1, $opacity), rgba($grad2, $opacity)); /* Standard syntax */
 }
 
+@mixin gradiente($angulo,$corini,$opaini,$corfim,$opafim) {
+	$angulo: $angulo+deg;
+	background: $corini; /* For browsers that do not support gradients */
+	background: -webkit-linear-gradient($angulo ,rgba($corini, $opaini), rgba($corfim, $opafim)); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient($angulo ,rgba($corini, $opaini), rgba($corfim, $opafim)); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient($angulo ,rgba($corini, $opaini), rgba($corfim, $opafim)); /* For Firefox 3.6 to 15 */
+	background: linear-gradient($angulo ,rgba($corini, $opaini), rgba($corfim, $opafim)); /* Standard syntax */
+}
+
 @mixin background-size($value) {
 	-webkit-background-size: $value;
 	-moz-background-size: $value;
@@ -36,8 +45,8 @@
 	transform: rotate($value);
 }
 
-@mixin scale() {
-	$value: 1.2;
+@mixin scale($value) {
+	//$value: $value1.2;
 	-webkit-transform: scale($value);
 	-moz-transform: scale($value);
 	-o-transform: scale($value);
@@ -91,14 +100,15 @@
     }
 }
 
+@mixin grayscale_element($value) {
+    -webkit-filter: #{"grayscale(#{$value})"};
+    -moz-filter: #{"grayscale(#{$value})"};
+    filter:#{"grayscale(#{$value})"};
+}
+
 @mixin placeholder {
 	&::-webkit-input-placeholder {@content}
 	&:-moz-placeholder           {@content}
 	&::-moz-placeholder          {@content}
 	&:-ms-input-placeholder      {@content}
-}
-
-@function fontsize($value) {
-	$fontsize: ($value/16) + 'rem';
-	@return $fontsize;
 }

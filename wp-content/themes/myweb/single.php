@@ -1,80 +1,52 @@
 <?php get_header(); ?>
+<?php $category = get_queried_object(); ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+<section class="section-content post">
+	<div class="container">
 
-		<section class="box-content no-padding-bottom noticias det-noticia">
+		<?php while ( have_posts() ) : the_post();					
 
-			<?php get_template_part( 'content', get_post_format() ); ?>
+			get_template_part( 'content', get_post_format() );
+			
+		endwhile; ?>
 
-		</section>
+	</div>
+</section>
 
-		<!-- NOTÍCIAS SECUNDÁRIA -->
-		<section class="box-content no-padding-top">
-			<div class="container">
-				
-				<div class="row">
-					<div class="col-m-1 col-10">
+<!-- recentes Mídias/Insights -->
+<section class="section-content recente-post border">
+	<div class="container">
+		<div class="row">
 
-						<div class="noticias list-noticias noticias-recentes">
+			<h2 class="tit-medio center">Recentes <strong>Mídias/Insights</strong></h2>
 
-							<h3 class="border mid">
-								<span>NOTÍCIAS RECENTES</span>
-								<a href="#" class="button pequeno transparent">mais notícias <i class="fas fa-chevron-right"></i></a>
-							</h3>
+				<?php
+					$args_noticias = array(
+						'posts_per_page' => 5,
+						'post_type' => 'post'
+					);
 
-							<div class="row row-mini">
+					$current_prod = $post->ID;
+					query_posts( $args_noticias );
+					$i = 0;
+					while ( have_posts() ) : the_post();
+						if($current_prod != $post->ID){
 
-								<?php
-									$args_noticias = array(
-										'posts_per_page' => 4,
-										'post_type' => 'post'
-									);
+							$i++;
+							if($i <= 4){
+							
+								get_template_part( 'content-list', get_post_format() );
+							
+							}
 
-									$current_prod = $post->ID;
-									query_posts( $args_noticias );
-									$i = 0;
-									while ( have_posts() ) : the_post();
-										if($current_prod != $post->ID){
-
-											$i++;
-											if($i <= 3){
-											
-												$categorias = wp_get_post_terms( $post->ID, 'category' ); 
-												$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'mini-post' ); ?>
-
-												<div class="col-4 item-noticias">
-													<div class="img-noticias">
-														<?php foreach ( $categorias as $categoria ) { ?>
-															<span class="label laranja"><?php echo $categoria->name; ?></span>
-														<?php } ?>	
-														<img src="<?php if($imagem[0]){ echo $imagem[0]; } ?>">
-													</div>
-
-													<div class="cont-noticias">
-														<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-															<h2><?php the_title(); ?></h2>
-														</a>
-														<span class="data"><?php echo get_the_date(); ?></span>
-													</div>
-												</div>
-											
-											<?php }
-
-										}
-									endwhile;
-									wp_reset_query();
-								?>
-
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-		</section>
-		<!-- NOTÍCIAS SECUNDÁRIA -->
-
-	<?php endwhile; ?>
+						}
+					endwhile;
+					wp_reset_query();
+				?>
+			
+		</div>
+	</div>
+</section>
+<!-- recentes Mídias/Insights -->
 
 <?php get_footer(); ?>

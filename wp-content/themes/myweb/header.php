@@ -47,8 +47,9 @@
 	$autor = 'Di20 Desenvolvimento'; 
 */ ?>
 
-<?php /*
+
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<?php /*
 <link rel="shortcut icon" href="<?php the_field('favicon', 'option'); ?>" type="image/x-icon" />
 <link rel="icon" href="<?php the_field('favicon', 'option'); ?>" type="image/x-icon" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -91,14 +92,15 @@
 */ ?>
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/assets/css/style.css" media="screen" />
-
+<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/assets/css/owlcarousel/owl.theme.default.min.css">
 <!-- JQUERY -->
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/bootstrap.js"></script>
 
 
 <script type="text/javascript">
-	jQuery.noConflict();
+	//jQuery.noConflict();
 
 	/*jQuery(document).ready(function(){
 
@@ -165,11 +167,11 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 </head>
 <body <?php body_class(); ?>>
 
-	<header class="header" style="">
+	<header class="header">
 		<div class="">
 			<h1>
 				<a href="<?php echo get_home_url(); ?>" title="<?php //the_field('titulo', 'option'); ?>">
-					<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/sadimorishita_logo_header.svg" alt="<?php //the_field('titulo', 'option'); ?>">
+					<img src="<?php //the_field('logo_header', 'option'); ?><?php echo get_template_directory_uri(); ?>/assets/images/sadimorishita_logo_header.png" alt="<?php //the_field('titulo', 'option'); ?>">
 				</a>
 			</h1>
 
@@ -177,12 +179,12 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 
 			<nav class="nav">
 				<ul>
-					<li class="">
+					<li class="<?php if(is_front_page()): echo 'ativo'; endif; ?>">
 						<a href="<?php echo get_home_url(); ?>" title="HOME">HOME</a>
 					</li>
 
-					<li class="submenu">
-						<a href="<?php //echo get_permalink(get_page_by_path('sobre')); ?>" title="SOBRE">QUEM SOMOS <i class="fas fa-chevron-down"></i></a>
+					<li class="<?php if(is_page('quem-somos')): echo 'ativo'; endif; ?>">
+						<a href="<?php echo get_permalink(get_page_by_path('quem-somos')); ?>" title="QUEM SOMOS">QUEM SOMOS <i class="fas fa-chevron-down" style="display: none;"></i></a>
 
 						<ul style="display: none;">
 							<li><a href="<?php echo get_home_url(); ?>/" title="">História</a></li>
@@ -196,25 +198,33 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 						</ul>
 					</li>
 
-					<li class="">
-						<a href="<?php //echo get_home_url(); ?>" title="ÁREAS DE ATUAÇÃO">ÁREAS DE ATUAÇÃO</a>
+					<li class="<?php if('areas-atuacao' == get_post_type()): echo 'ativo'; endif; ?>">
+						<a href="<?php echo get_home_url(); ?>/areas-atuacao" title="ÁREAS DE ATUAÇÃO">ÁREAS DE ATUAÇÃO</a>
 					</li>
 
-					<li class="">
-						<a href="<?php //echo get_permalink(get_page_by_path('co-found')); ?>" title="NOSSOS ADVOGADOS">NOSSOS ADVOGADOS</a>
+					<li class="<?php if('nossos-advogados' == get_post_type()): echo 'ativo'; endif; ?>">
+						<a href="<?php echo get_home_url(); ?>/nossos-advogados" title="NOSSOS ADVOGADOS">NOSSOS ADVOGADOS</a>
 					</li>
 
-					<li class="submenu">
-						<a href="<?php //echo get_home_url(); ?>" title="MÍDIAS/INSIGHT">MÍDIAS/INSIGHT <i class="fas fa-chevron-down"></i></a>
+					<li class="<?php if('post' == get_post_type()): echo 'ativo'; endif; ?>">
+						<a href="<?php echo get_home_url(); ?>/midias-insight" title="MÍDIAS/INSIGHT">MÍDIAS/INSIGHT <i class="fas fa-chevron-down" style="display: none;"></i></a>
 					</li>
 
-					<li class="">
-						<a href="<?php //echo get_permalink(get_page_by_path('contato')); ?>" title="FALE CONOSCO">FALE CONOSCO</a>
+					<li class="<?php if(is_page('fale-conosco')): echo 'ativo'; endif; ?>">
+						<a href="javascript:<?php //echo get_permalink(get_page_by_path('fale-conosco')); ?>" title="FALE CONOSCO">FALE CONOSCO</a>
 					</li>
 
-					<li class="redes-sociais">
-						<a href="<?php //echo get_permalink(get_page_by_path('contato')); ?>" class="" title="FACEBOOK"><i class="fab fa-facebook-square"></i></a>
-						<a href="<?php //echo get_permalink(get_page_by_path('contato')); ?>" class="" title="INSTAGRAM"><i class="fab fa-instagram"></i></a>
+					<li class="idiomas">
+						<div id="google_translate_element" class="boxTradutor"></div>
+						<a href="javascript:trocarIdioma('pt')">
+							<img class="img-footer" src="<?php echo get_template_directory_uri(); ?>/assets/images/br.png" alt="">
+						</a>
+						<a href="javascript:trocarIdioma('en')" class="">
+							<img class="img-footer" src="<?php echo get_template_directory_uri(); ?>/assets/images/en.png" alt="">
+						</a>
+						<a href="javascript:trocarIdioma('es')" class="">
+							<img class="img-footer" src="<?php echo get_template_directory_uri(); ?>/assets/images/es.png" alt="">
+						</a>
 					</li>
 
 					<li class="busca" style="display: none;">
@@ -226,8 +236,80 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");*/
 		</div>
 	</header>
 
-	<?php //get_template_part( 'breadcrumbs', get_post_format() ); ?>
+	<?php get_template_part( 'breadcrumbs', get_post_format() ); ?>
 
-	<?php if(!is_home()){ ?>
+	<?php if(is_front_page()){ ?>
+		<section class="section-content no-padding slide">		
+			<div class="carousel slide" data-ride="" data-interval="6000" id="slide">
+				<div class="carousel-inner">
 
+					<?php
+						$args_noticias = array(
+							'posts_per_page' => 3,
+							'post_type' => 'post'
+						);
+						$current_prod = $post->ID;
+						query_posts( $args_noticias );
+						$slide = 0;
+						$link_slide = array();
+
+						while ( have_posts() ) : the_post();
+							$imagem = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), '' ); ?>
+
+								<div class="carousel-item <?php if($slide == 0){ echo 'active'; } ?>" style="background-image: url('<?php echo $imagem[0]; ?>');">
+
+									<div class="vertical-center">
+										<div class="content-vertical content-carousel">
+											<h2 class="title_page"><?php the_title(); ?></h2>
+											<div class="texto"><?php the_excerpt(); ?></div>
+										</div>
+									</div>
+									
+								</div>
+
+							<?php
+							$slide = $slide+1;
+							$link_slide[] = get_the_permalink();
+						endwhile;
+						wp_reset_query();
+					?>
+
+				</div>
+
+				<?php /*
+				<a class="carousel-control-prev" href="#slide" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Anterior</span>
+				</a>
+				<a class="carousel-control-next" href="#slide" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Próximo</span>
+				</a>
+				*/ ?>
+
+				<div class="box-carousel-indicators">
+					<div class="content-indicators">
+						<ol class="carousel-indicators">					
+							<?php for($i=0; $i<$slide; $i++){ ?>
+								<li data-target="#slide" data-slide-to="<?php echo $i; ?>" class="<?php if($i == 0){ echo 'active'; } ?>"></li>
+							<?php } ?>					
+						</ol>
+
+						<a href="<?php echo get_home_url(); ?>/midias-insight" title="MÍDIAS/INSIGHT">
+							<h2>MÍDIAS/INSIGHT</h2>
+						</a>
+					</div>
+
+					<div class="link-midia">
+						<?php
+							foreach ($link_slide as $key => $link) { ?>
+								<a href="<?php echo $link; ?>" title="Veja mais" class="button cor2 <?php if($key == 0){ echo 'active'; } ?>" id="btn_slide_<?php echo $key; ?>">
+									VEJA MAIS <i class="fas fa-chevron-right"></i>
+								</a>
+							<?php }
+						?>
+					</div>
+				</div>
+			</div>
+		</section>
 	<?php } ?>

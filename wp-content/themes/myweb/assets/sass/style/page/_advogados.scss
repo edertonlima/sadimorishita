@@ -1,0 +1,177 @@
+#carousel-advogados {
+	overflow: hidden;
+	.owl-nav {
+		display: none;
+	}
+}
+
+.nossos-advogados {
+	.content-advogado {
+		padding: 20px;
+		@include box-sizing;
+
+		h2 {
+		}
+
+		h3, span {
+			text-transform: uppercase;
+			display: block;
+		}
+
+		h3 {
+			color: $cor2;
+			margin-top: 15px;
+		}
+
+		p {
+			padding: 0;
+		}
+
+		.prof {
+			padding: 10px;
+			margin-bottom: 20px;
+			color: $cortxt;
+		}
+	}
+}
+
+.list-advogados {
+	&:before {
+		content: '';
+		background-color: #ffffff;
+		position: absolute;
+		width: 100%;
+		height: 267px;
+		bottom: 0;
+	}
+
+	&.bg-cor3{
+
+		h2 {
+			color: #ffffff;
+			strong {
+				color: $cor2; 
+			}
+		}
+
+		p.subtitulo {
+			color: #ffffff;
+		}
+	}
+
+	.item-list-advogado {
+		margin-top: 75px;
+		width: 100%;	
+		@include clear;
+
+		.owl-item {
+			float: left;
+			width: 25%;
+		}
+	}
+
+	.img-advogado {
+		width: 100%;
+		height: 40vh;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		position: relative;
+		overflow: hidden;
+		height: 40vh;
+		@include grayscale_element(100%);
+		transition: all 400ms ease-in-out;
+	}
+
+	a {
+		border-top: 5px solid $cor2;
+		position: relative;
+		display: block;
+		border-radius: 5px 5px 0 0;
+
+		.img-mask {
+			overflow: hidden;
+			height: 40vh;
+			position: relative;
+		}
+
+		.hover {
+			width: 100%;
+			//background-color: rgba($cor1, .5);
+			@include gradiente(1,$cor1,.8,$cor1,.5);
+			background: url('../images/bg-list-advogados.png') repeat-x bottom left;
+			position: absolute;
+			top: 0;
+			height: 40vh;
+			opacity: 0;
+			transition: all 400ms ease-in-out;
+			text-align: center;
+
+			.button {
+				bottom: 20px;
+				position: absolute;
+				margin-left: -75px;
+				height: 40px;
+				line-height: 38px;
+			}
+		}
+
+		&:hover{
+			.img-advogado {
+				@include scale(1.05);
+				@include grayscale_element(0);
+			}
+
+			.hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	.content-advogado {
+		height: 115px;
+		background-color: #ffffff;
+
+		h3, span {
+			text-align: center;
+		}
+
+		h3 {
+			color: $cortxt-bold;
+			margin-top: 0;
+		}
+		.prof {
+			padding: 0;
+			margin: 0;
+		}
+	}
+
+	.control {
+		margin-top: 30px;
+		text-align: center;
+		@include clear;
+
+		a {
+			width: 45px;
+			height: 45px;
+			border: 1px solid $cor2;
+			display: inline-block;
+			margin: 0 5px;
+			line-height: 45px;
+			text-align: center;
+			border-radius: 5px;
+
+			i {
+				color: $cor2;
+			}
+
+			&:hover {
+				background-color: $cor2;
+
+				i {
+					color: #ffffff;
+				}
+			}
+		}
+	}
+}

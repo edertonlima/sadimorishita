@@ -10,18 +10,29 @@
 
 /* HABILITAR / DESABILITAR */
 add_theme_support( 'post-thumbnails' );
+add_post_type_support( 'page', 'excerpt' );
 
 // Unable admin bar
 add_filter('show_admin_bar', '__return_false');
 
+
 add_post_type_support( 'post', 'excerpt' );
+// tn custom excerpt length
+function tn_custom_excerpt_length( $length ) {
+	return 12;
+}
+add_filter( 'excerpt_length', 'tn_custom_excerpt_length', 999 );
+
+
 
 // remove itens padrões
 add_action( 'init', 'my_custom_init' );
 function my_custom_init() {
 	//remove_post_type_support( 'post', 'editor' );
-	remove_post_type_support('page', 'editor');
-	remove_post_type_support( 'page', 'thumbnail' );
+	//remove_post_type_support( 'post', 'thumbnail' );
+
+	//remove_post_type_support('page', 'editor');
+	//remove_post_type_support( 'page', 'thumbnail' );
 }
 
 // REMOVE PARENT PAGE
@@ -31,10 +42,10 @@ function remove_post_custom_fields() {
 add_action( 'admin_menu' , 'remove_post_custom_fields' );
 
 // Remove tags
-/*function myprefix_unregister_tags() {
+function myprefix_unregister_tags() {
     unregister_taxonomy_for_object_type('post_tag', 'post');
 }
-add_action('init', 'myprefix_unregister_tags');*/
+add_action('init', 'myprefix_unregister_tags');
 
 
 /* MENUS */
@@ -72,15 +83,11 @@ function wpdocs_theme_setup() {
 }
 
 
-
-
- /*
-
 // muda nome post
 function change_post_label() {
     global $menu;
     global $submenu;
-    $menu[5][0] = 'Blog';
+    $menu[5][0] = 'Mídias/Insight';
     $submenu['edit.php'][5][0] = 'Todos os posts';
     $submenu['edit.php'][10][0] = 'Adicionar post';
     echo '';
@@ -88,8 +95,8 @@ function change_post_label() {
 function change_post_object() {
     global $wp_post_types;
     $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'Blog';
-    $labels->singular_name = 'Blog';
+    $labels->name = 'Mídias/Insight';
+    $labels->singular_name = 'Mídias/Insight';
     $labels->add_new = 'Adicionar post';
     $labels->add_new_item = 'Adicionar post';
     $labels->edit_item = 'Editar post';
@@ -99,13 +106,12 @@ function change_post_object() {
     $labels->not_found = 'Nenhum post encontrado';
     $labels->not_found_in_trash = 'Nenhum post encontrado na lixeira';
     $labels->all_items = 'Todos os posts';
-    $labels->menu_name = 'Blog';
-    $labels->name_admin_bar = 'Blog';
+    $labels->menu_name = 'Mídias/Insight';
+    $labels->name_admin_bar = 'Mídias/Insight';
 }
  
 add_action( 'admin_menu', 'change_post_label' );
 add_action( 'init', 'change_post_object' );
-*/
 
 /* PAGINAS CONFIGURAÇÕES */ 
 //if( function_exists('acf_add_options_page') ) {
@@ -176,25 +182,25 @@ function paginacao() {
 
 // NOVOS POST TYPES 
 
-/*
-// ASSOCIADOS
-add_action( 'init', 'create_post_type_associado' );
-function create_post_type_associado() {
+
+// ÁREAS DE ATUAÇÃO
+add_action( 'init', 'create_post_type_areasatuacao' );
+function create_post_type_areasatuacao() {
 
 	$labels = array(
-	    'name' => _x('Associados', 'post type general name'),
-	    'singular_name' => _x('Associado', 'post type singular name'),
-	    'add_new' => _x('Adicionar novo', 'Associado'),
-	    'add_new_item' => __('Addicionar novo Associado'),
-	    'edit_item' => __('Editar Associado'),
-	    'new_item' => __('Novo Associado'),
-	    'all_items' => __('Todos as Associados'),
-	    'view_item' => __('Visualizar Associado'),
-	    'search_items' => __('Procurar Associado'),
-	    'not_found' =>  __('Nenhum associado encontrado.'),
-	    'not_found_in_trash' => __('Nenhum associados encontrado na lixeira.'),
+	    'name' => _x('Áreas de Atuação', 'post type general name'),
+	    'singular_name' => _x('Áreas de Atuação', 'post type singular name'),
+	    'add_new' => _x('Adicionar novo', 'Post'),
+	    'add_new_item' => __('Addicionar novo Post'),
+	    'edit_item' => __('Editar Post'),
+	    'new_item' => __('Novo Post'),
+	    'all_items' => __('Todos os Post'),
+	    'view_item' => __('Visualizar Post'),
+	    'search_items' => __('Procurar Post'),
+	    'not_found' =>  __('Nenhum post encontrado.'),
+	    'not_found_in_trash' => __('Nenhum post encontrado na lixeira.'),
 	    'parent_item_colon' => '',
-	    'menu_name' => 'Associados'
+	    'menu_name' => 'Áreas de Atuação'
 	);
 	$args = array(
 	    'labels' => $labels,
@@ -207,13 +213,50 @@ function create_post_type_associado() {
 	    'has_archive' => true,
 	    'hierarchical' => false,
 	    'menu_position' => null,
-	    'menu_icon' => 'dashicons-businessperson',
-	    'supports' => array('title','thumbnail','excerpt')
+	    'menu_icon' => 'dashicons-desktop',
+	    'supports' => array('title','editor')
 	  );
 
-    register_post_type( 'associado', $args );
+    register_post_type( 'areas-atuacao', $args );
 }
-*/
+
+// NOSSOS ADVOGADOS
+add_action( 'init', 'create_post_type_nossosadvogados' );
+function create_post_type_nossosadvogados() {
+
+	$labels = array(
+	    'name' => _x('Nossos Advogados', 'post type general name'),
+	    'singular_name' => _x('Nossos Advogados', 'post type singular name'),
+	    'add_new' => _x('Adicionar novo', 'Advogado'),
+	    'add_new_item' => __('Addicionar novo Advogado'),
+	    'edit_item' => __('Editar Advogado'),
+	    'new_item' => __('Novo Advogado'),
+	    'all_items' => __('Todos os Advogados'),
+	    'view_item' => __('Visualizar Advogado'),
+	    'search_items' => __('Procurar Advogado'),
+	    'not_found' =>  __('Nenhum advogado encontrado.'),
+	    'not_found_in_trash' => __('Nenhum advogado encontrado na lixeira.'),
+	    'parent_item_colon' => '',
+	    'menu_name' => 'Nossos Advogados'
+	);
+	$args = array(
+	    'labels' => $labels,
+	    'public' => true,
+	    'publicly_queryable' => true,
+	    'show_ui' => true,
+	    'show_in_menu' => true,
+	    'rewrite' => true,
+	    'capability_type' => 'post',
+	    'has_archive' => true,
+	    'hierarchical' => false,
+	    'menu_position' => null,
+	    'menu_icon' => 'dashicons-businessman',
+	    'supports' => array('title','editor','thumbnail')
+	  );
+
+    register_post_type( 'nossos-advogados', $args );
+}
+
 
 /*
 // FORUM

@@ -1,0 +1,117 @@
+.post {
+	h2 {
+		strong {
+			color: $cor1;
+		}
+	}
+}
+
+.recente-post {
+	h2 {
+		&.tit-medio {
+			margin: 0;
+		}
+
+		strong {
+			color: $cor2;
+		}
+	}
+}
+
+.list-post {
+	margin-top: 75px;
+
+	.data, .content-list-post {
+		display: table-cell;
+		vertical-align: top;
+	}
+
+	.data {
+		width: 40px;
+		padding-right: 15px;
+
+		span {
+			display: block;
+			text-align: center;
+			font-weight: $extra-bold;
+
+			&.dia {
+				font-size: 1.125rem;
+				padding: 12px 0;
+				color: $cortxt-bold;
+				background-color: $border-cinza;
+			}
+
+			&.mes {
+				font-size: .6875rem;
+				padding: 7.5px 0;
+				color: #ffffff;
+				background-color: $cor2;
+				text-transform: uppercase;
+			}
+
+			&.ano {
+				font-size: .625rem;
+				padding: 7.5px 0;
+				color: $cortxt;
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	.content-list-post {
+		h3 {
+			margin-bottom: 10px;
+		}
+	}
+}
+
+.detalhe-post {
+	.list-post {
+		//max-width: 800px;
+		width: 100%;
+		margin: 0;
+	}
+
+	.data-det {
+		color: $cortxt;
+		i {
+			color: $cortxt;
+			opacity: 1;
+			padding-right: 5px;
+		}
+	}
+
+	.content {
+		width: 100%;
+		display: block;
+		@include clear;
+
+		ul, ol {
+			width: 100%;
+			margin-top: 20px;
+			padding-left: 25px;
+			display: block;
+			@include clear;
+			@include box-sizing;
+
+			li {
+				font-size: $font-size;
+				line-height: $font-size+.5;
+				font-weight: $light;
+				padding: 0 0 5px 0;
+				position: relative;
+
+				&:before {
+					content: '\f068';
+					position: absolute;
+					left: -21px;
+					font-size: .7rem;
+					line-height: 1.37rem;
+					font-family: 'Font Awesome 5 Free';
+					font-weight: 900;
+				}
+			}
+		}
+	}
+}

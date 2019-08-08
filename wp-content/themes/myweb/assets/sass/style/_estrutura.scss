@@ -3,16 +3,16 @@ html {
 }
 
 body {
-	position: relative;
+	position: relative; 
 	min-height: 100vh;
-	//min-width: $width;
+	min-width: $width;
 }
 
-body * {
+body {
 	font-family: $font-family;
-	color: $cortxt;
-	font-weight: $light;
-	font-size: $font-size; 
+	//color: $cortxt;
+	//font-weight: $light;
+	//font-size: $font-size; 
 }
 
 .container {
@@ -64,9 +64,9 @@ body * {
 		}
 	}
 
-	.col-4:nth-child(3n+1) {
+	/*.col-4:nth-child(3n+1) {
 		@include clear;
-	}
+	}*/
 
 	&.row-mini {
 		margin-right: -15px;
@@ -79,12 +79,28 @@ body * {
 	}
 }
 
-.box-content {
+.section-content {
 	@include clear;
 	@include box-sizing();
 	width: 100%;
 	position: relative;
-	padding: 100px 0;
+	padding: 75px 0;
+
+	.content {
+		padding-top: 75px;
+
+		&.no-padding {
+			padding: 0;
+		}
+
+		&.no-padding-bottom {
+			padding-bottom: 0;
+		}
+	}
+
+	&.border{
+		border-top: 1px solid $border-cinza;
+	}
 }
 
 .vertical-center {

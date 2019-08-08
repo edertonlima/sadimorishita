@@ -1,14 +1,16 @@
 <?php get_header(); ?>
+<?php $category = get_queried_object(); ?>
 
-	<?php
-	// Start the loop.
-	while ( have_posts() ) : the_post();
+<section class="section-content det-page">
+	<div class="container">
 
-		// Include the page content template.
-		get_template_part( 'content-none', 'page' );
+		<?php while ( have_posts() ) : the_post();					
 
-	// End the loop.
-	endwhile;
-	?>
+			get_template_part( 'content-page', get_post_format() );
+			
+		endwhile; ?>
+
+	</div>
+</section>
 
 <?php get_footer(); ?>

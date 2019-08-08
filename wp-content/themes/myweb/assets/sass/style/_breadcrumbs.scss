@@ -1,13 +1,10 @@
 .breadcrumbs {
 	width: 100%;
-	background: #f2f2f2;
+	background-color: rgba($border-cinza, .75);
 	padding: 15px 0;
 
 	h4 {
-		float: left;
-		line-height: 23px;
-		border: 0;
-		font-size: 1.25rem;
+		display: inline-block;
 	}
 
 	ul {
@@ -43,16 +40,17 @@
 		a, span, i {
 			line-height: 1.37rem;
 			display: inline;
+			color: $cortxt;
 		}
 
 		a, span {
 			font-weight: $regular;
-			font-size: .8rem;
+			font-size: 0.6875rem;
 			text-transform: uppercase;
 		}
 
 		i {
-			font-size: .9rem;
+			font-size: .8rem;
 			opacity: .7;
 		}
 

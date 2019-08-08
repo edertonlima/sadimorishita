@@ -1,4 +1,6 @@
 .nav {
+	text-align: center;
+	height: 60px;
 	width: 100%;
 	z-index: 999;
 	border-top: 1px solid $border-cinza;
@@ -7,39 +9,80 @@
 	@include animacao();
 
 	ul {
-		text-align: center;
+		display: inline-block;
 		@include box-sizing;
 	}
 
 	li {
-		display: inline-block;
-		line-height: normal;
-		padding: 0px 10px;
+		float: left;
+		border-right: 1px solid $border-cinza;
+
+		&:last-child {
+			border: none;
+		}
 
 		a {
+			font-size: 0.75rem;
+			padding: 0 25px;
+			line-height: 60px;
 			display: inline-block;
-			color: #ffffff;
-			font-weight: $bold;
+			color: $cortxt-bold;
+			font-weight: $medium;
 			text-transform: uppercase;
 			@include animacao();
 
 			i {
 				display: inline-block;
-				color: #fff;
+				color: $cortxt-bold;
 				position: relative;
 			}
 		}
 
 		&:hover {
 			> a:not(.button) {
-				opacity: .75;
+				//opacity: .75;
 				//background-color: rgba($azul, .5);
 			}
 		}
 
 		&:hover, &.ativo {
 			> a {
-				
+				color: $cor2;
+				position: relative;
+
+				&:before {
+					content: '';
+					background-color: $cor2;
+					height: 3px;
+					width: 100%;
+					padding: 0 1px;
+					position: absolute;
+					top: -2px;
+					left: -1px;
+				}
+			}
+		}
+
+		&.idiomas {
+			border: none;
+			padding-left: 23px;
+
+			a {
+				padding: 0 2px;
+
+				img {
+					position: relative;
+					top: 4px;
+				}
+
+				&:before {
+					display: none;
+				}
+
+				&:hover {
+					border: none;
+					opacity: .5;
+				}
 			}
 		}
 
@@ -48,7 +91,7 @@
 			z-index: 10;
 
 			> a {
-				margin-bottom: 10px;
+				//margin-bottom: 10px;
 
 				i {
 					font-size: .55rem;
@@ -96,14 +139,6 @@
 				> ul {
 					display: block;
 				}
-			}
-		}
-
-		&.ativo {
-			> a {
-				padding: 10px 10px;
-				border-radius: 5px;
-				background-color: $azul;
 			}
 		}
 	}

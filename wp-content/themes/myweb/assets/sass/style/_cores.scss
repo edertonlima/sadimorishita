@@ -1,21 +1,53 @@
 // BACGROUND
 .bg-cinza {
-	background: #f2f2f2;
+	background: $border-cinza;
 }
 
 .bg-azul {
-	background: rgba($azul, .25);
+	background: $azul;
 	
-	&.bg-total {
-		background: $azul;
+	&.bg-transp {
+		background: rgba($azul, .25);
+	}
+}
+
+.bg-cor1 {
+	background: $cor1;
+	
+	&.bg-transp {
+		background: rgba($cor1, .25);
+	}
+}
+
+.bg-cor2 {
+	background: $cor2;
+	
+	&.bg-transp {
+		background: rgba($cor2, .25);
+	}
+}
+
+.bg-cor3 {
+	background: $cor3;
+	
+	&.bg-transp {
+		background: rgba($cor3, .25);
+	}
+}
+
+.bg-cor4 {
+	background: $cor4;
+	
+	&.bg-transp {
+		background: rgba($cor4, .25);
 	}
 }
 
 .bg-laranja {
-	background: rgba($laranja, .25);
+	background: $laranja;
 	
-	&.bg-total {
-		background: $laranja;
+	&.bg-transp {
+		background: rgba($laranja, .25);
 	}
 }
 
@@ -23,7 +55,77 @@
 	color: #ffffff;
 }
 
+.cor2 {
+	color: $cor2;
+}
+
 .button {
+	&.cor1 {
+		background-color: $cor1;
+		color: #ffffff;
+		border-color: $cor1;
+
+		i {
+			color: #ffffff;
+		}
+
+		&:hover {
+			background-color: darken($cor1, 10%);
+			border-color: darken($cor1, 10%);
+		}
+
+		&.transparent {
+			color: $cor1;
+			background: transparent;
+
+			i {
+				color: $cor1;
+			}
+
+			&:hover {
+				background-color: $cor1;
+				color: #ffffff;
+
+				i {
+					color: #ffffff;
+				}
+			}
+		}
+	}
+
+	&.cor2 {
+		background-color: $cor2;
+		color: #ffffff;
+		border-color: $cor2;
+
+		i {
+			color: #ffffff;
+		}
+
+		&:hover {
+			background-color: darken($cor2, 10%);
+			border-color: darken($cor2, 10%);
+		}
+
+		&.transparent {
+			color: $cor2;
+			background: transparent;
+
+			i {
+				color: $cor2;
+			}
+
+			&:hover {
+				background-color: $cor2;
+				color: #ffffff;
+
+				i {
+					color: #ffffff;
+				}
+			}
+		}
+	}
+
 	&.amarelo {
 		background-color: $amarelo;
 		color: #ffffff;

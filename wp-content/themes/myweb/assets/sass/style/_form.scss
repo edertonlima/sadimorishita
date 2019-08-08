@@ -76,23 +76,33 @@ label:hover:before {
 button, input[type='submit'], .button { 
 	display: inline-block;
 	width: auto;
-	height: 46px;
-	line-height: 46px;
-	color: #ffffff;
+	height: 32px;
+	line-height: 32px;
+	color: $cortxt;
 	font-weight: $bold;
-	font-size: 1.06rem; 
+	font-size: .6875rem; 
 	text-align: center;
 	text-transform: uppercase;
-	padding: 0 30px;
+	padding: 0 25px;
 	border-radius: 5px;
-	border: 1px solid #ffffff;
+	border: 1px solid $cortxt;
 	cursor: pointer;
 	@include animacao;
 	@include box-sizing();
 
+	i {
+		font-size: .6875rem; 
+		margin-left: 5px;
+		color: $cortxt;
+	}
+
 	&:hover {
-		background-color: #ffffff;
+		background-color: $cortxt;
 		color: #ffffff;
+
+		i {
+			color: #FFFFFF;
+		}
 	}
 
 	&.grande {

@@ -1,0 +1,16 @@
+.det-page {
+	h2 {
+		strong {
+			color: $cor1;
+		}
+
+		&.tit-medio {
+			margin-bottom: 40px;
+		}
+	}
+
+	h3 {
+		color: $cor1;
+		margin-bottom: 20px;
+	}
+}
