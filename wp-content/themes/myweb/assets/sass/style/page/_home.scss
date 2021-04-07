@@ -35,7 +35,7 @@
 	}
 
 	.content-vertical {
-		width: 50%;
+		width: 65%;
 		@include box-sizing;
 
 		.button {
@@ -44,6 +44,10 @@
 
 		.cor2 {
 			color: $cor2;
+		}
+
+		&.imagem-quem-somos {
+			width: 35%;
 		}
 	}
 }
